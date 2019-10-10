@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static %}
 </head>
 <body>
 <h1>DMV App</h1>
+
+{% for eachItem in alldata %}
+    {{ eachItem.name}}
+    <img src="{{ eachItem.imageFile.url }}" alt="test file" height="100px">
+<br>
+{% endfor %}
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Submit</button>
+</form>
 </body>
 </html>
